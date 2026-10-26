@@ -21,7 +21,7 @@ CMD ["npm", "start"]
 FROM nginx:alpine
 
 # Copy the built files from the previous step
-COPY --from=build-stage /app/build /usr/share/nginx/html
+COPY --from=build-stage /app/dist /usr/share/nginx/html
 
 # Copy the custom Nginx configuration
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
