@@ -1,4 +1,4 @@
-import songs from '../data/songs.json'
+import songs from '../../../backend/repertoire/songs.json'
 
 export function getAllSongs() {
   return songs.map(song => ({ ...song }))
