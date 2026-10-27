@@ -1,7 +1,7 @@
 import ListItem from './ListItem';
 import { useState } from 'react'
 
-export default function List({ songs = [] }) {
+export default function List({ list = [], icon }) {
     const [selectedSong, setSelectedSong] = useState(null)
 
     function handleSongSelect(song) {
@@ -15,12 +15,13 @@ export default function List({ songs = [] }) {
                 <span>Date of creation</span>
             </div>
             <ul className="flex flex-col divide-y divide-gray-500">
-                {songs.map(song => (
+                {list.map(song => (
                     <ListItem
                         key={song.id}
                         title={song.title}
                         artist={song.artist}
                         createdAt={song.createdAt}
+                        icon={icon}
                         isSelected={selectedSong?.id === song.id}
                         onSongSelect={() => handleSongSelect(song)}
                     />

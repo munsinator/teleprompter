@@ -2,6 +2,7 @@ import List from '../components/common/List'
 import AddButton from '../components/common/AddButton'
 import PlayButton from '../components/common/PlayButton'
 import DeleteButton from '../components/common/DeleteButton'
+import { faMusic } from '@fortawesome/free-solid-svg-icons'
 import { getAllSongs } from '../services/songService'
 
 export default function Repertoire() {
@@ -20,7 +21,7 @@ export default function Repertoire() {
 
       <section className="mt-4 flex justify-center">
         <div className="w-full max-w-5xl">
-          <List songs={songs} />
+          <List list={songs} icon={faMusic} />
         </div>
       </section>
     </>

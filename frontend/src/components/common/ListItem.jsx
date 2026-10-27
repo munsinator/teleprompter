@@ -1,8 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMusic } from '@fortawesome/free-solid-svg-icons'
 import PlayButton from './PlayButton'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function ListItem({ title, artist, createdAt, onSongSelect, isSelected = false }) {
+export default function ListItem({ title, artist, createdAt, icon,  onSongSelect, isSelected = false }) {
   const formattedDate = createdAt
     ? createdAt.split('-').reverse().join('.')
     : '—'
@@ -16,7 +15,7 @@ export default function ListItem({ title, artist, createdAt, onSongSelect, isSel
         onClick={onSongSelect}
       >
       <div className="flex gap-2 items-center">
-        <FontAwesomeIcon icon={faMusic} className="shrink-0 text-lg" />
+        <FontAwesomeIcon icon={icon} className="shrink-0 text-lg" />
         <span className="font-bold text-lg">{title}</span>
         <span className="text-sm text-gray-400">{artist}</span>
       </div>
