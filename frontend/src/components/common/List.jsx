@@ -1,6 +1,6 @@
 import ListItem from './ListItem';
 
-export default function List() {
+export default function List({ songs = [] }) {
     return (
         <div>
             <div className="grid grid-cols-[minmax(0,1fr)_10rem] items-center border-b border-gray-500 px-4 py-3 text-sm font-semibold text-gray-400">
@@ -8,9 +8,9 @@ export default function List() {
                 <span>Date of creation</span>
             </div>
             <ul className="flex flex-col divide-y divide-gray-500">
-            <ListItem title="Item 1" />
-            <ListItem title="Item 2" />
-            <ListItem title="Item 3" />
+                {songs.map(song => (
+                    <ListItem key={song.id} title={song.title} artist={song.artist} createdAt={song.createdAt} />
+                ))}
             </ul>
         </div>
     );

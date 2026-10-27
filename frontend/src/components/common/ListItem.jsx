@@ -1,16 +1,20 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMusic } from '@fortawesome/free-solid-svg-icons'
 
-export default function ListItem({ title }) {
+export default function ListItem({ title, artist, createdAt }) {
+  const formattedDate = createdAt
+    ? createdAt.split('-').reverse().join('.')
+    : '—'
+
   return (
-    <li className="flex items-center pt-6 pb-6 justify-between hover:bg-gray-600 cursor-pointer">
+    <li className="grid grid-cols-[minmax(0,1fr)_10rem] items-center px-4 py-6 hover:bg-gray-600 cursor-pointer">
       <div className="flex gap-2 items-center">
-        <FontAwesomeIcon icon={faMusic} className="ml-4 text-lg" />
+        <FontAwesomeIcon icon={faMusic} className="shrink-0 text-lg" />
         <span className="font-bold text-lg">{title}</span>
-        <span className="text-sm text-gray-400">Artist</span>
+        <span className="text-sm text-gray-400">{artist}</span>
       </div>
       <div className="flex items-center mr-4">
-        <span className="text-sm text-gray-400">Date</span>
+        <time dateTime={createdAt} className="text-sm text-gray-400">{formattedDate}</time>
       </div>
     </li>
   );

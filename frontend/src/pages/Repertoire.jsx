@@ -1,7 +1,9 @@
 import List from '../components/common/List'
 import AddButton from '../components/common/AddButton'
+import { getSongs } from '../services/songService'
 
 export default function Repertoire() {
+  const songs = getSongs()
   return (
     <>
       <div className="flex items-center justify-between">
@@ -13,7 +15,7 @@ export default function Repertoire() {
 
       <section className="mt-4 flex justify-center">
         <div className="w-full max-w-5xl">
-          <List />
+          <List songs={songs} />
         </div>
       </section>
     </>
