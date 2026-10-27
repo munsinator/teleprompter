@@ -1,5 +1,5 @@
 import songs from '../data/songs.json'
 
-export function getSongs() {
+export function getAllSongs() {
   return songs.map(song => ({ ...song }))
 }
